@@ -59,9 +59,19 @@ Grâce à l'utilisation des **workspaces**, cela installera automatiquement les 
 
 ---
 
-### 3. Démarrer le projet
+### 3. Générer les fichiers Prisma
 
-Depuis la racine (`/bibliotheque-ada`), lancer les deux serveurs en parallèle :
+Avant de démarrer le projet, génère les fichiers Prisma nécessaires avec :
+
+```bash
+npx prisma generate
+```
+
+---
+
+### 4. Démarrer le projet
+
+Depuis la racine (`/bibliotheque-ada`), lance les deux serveurs en parallèle :
 
 ```bash
 npm run dev
