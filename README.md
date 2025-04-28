@@ -64,7 +64,7 @@ Grâce à l'utilisation des **workspaces**, cela installera automatiquement les 
 Avant de démarrer le projet, génère les fichiers Prisma nécessaires avec :
 
 ```bash
-npx prisma generate
+cd backend && npx prisma generate && cd ..
 ```
 
 ---
