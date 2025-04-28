@@ -21,29 +21,6 @@ function DebugWebmaster() {
         fetchDebugInfo();
     }, []);
 
-    const handleDeleteUser = async (userId) => {
-        if (window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-            try {
-                await API.delete(`/auth/${userId}`);
-                setUsers(prev => prev.filter(u => u.id !== userId));
-                setBooks(prev => prev.filter(b => b.userId !== userId));
-            } catch (err) {
-                alert('Erreur lors de la suppression de l\'utilisateur.');
-            }
-        }
-    };
-
-    const handleDeleteBook = async (bookId) => {
-        if (window.confirm('Êtes-vous sûr de vouloir supprimer ce livre ?')) {
-            try {
-                await API.delete(`/books/${bookId}`);
-                setBooks(prev => prev.filter(b => b.id !== bookId));
-            } catch (err) {
-                alert('Erreur lors de la suppression du livre.');
-            }
-        }
-    };
-
     const toggleUserBooks = (userId) => {
         setExpandedUserId(expandedUserId === userId ? null : userId);
     };
@@ -61,18 +38,6 @@ function DebugWebmaster() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <div>
                             <strong>{user.email}</strong> (ID: {user.id})
-                            <button onClick={() => handleDeleteUser(user.id)} style={{
-                                marginLeft: '10px',
-                                padding: '3px 8px',
-                                backgroundColor: '#f44336',
-                                color: 'white',
-                                border: 'none',
-                                borderRadius: '5px',
-                                cursor: 'pointer',
-                                fontSize: '12px'
-                            }}>
-                                Supprimer
-                            </button>
                         </div>
                         <button onClick={() => toggleUserBooks(user.id)} style={{
                             padding: '5px 10px',
@@ -105,18 +70,6 @@ function DebugWebmaster() {
                                             <tr key={book.id}>
                                                 <td style={{ padding: '8px', border: '1px solid #ccc' }}>
                                                     {book.title}
-                                                    <button onClick={() => handleDeleteBook(book.id)} style={{
-                                                        marginLeft: '8px',
-                                                        padding: '2px 6px',
-                                                        backgroundColor: '#f44336',
-                                                        color: 'white',
-                                                        border: 'none',
-                                                        borderRadius: '4px',
-                                                        fontSize: '10px',
-                                                        cursor: 'pointer'
-                                                    }}>
-                                                        Supprimer
-                                                    </button>
                                                 </td>
                                                 <td style={{ padding: '8px', border: '1px solid #ccc' }}>{book.author}</td>
                                                 <td style={{ padding: '8px', border: '1px solid #ccc' }}>{book.currentPage}/{book.totalPages}</td>

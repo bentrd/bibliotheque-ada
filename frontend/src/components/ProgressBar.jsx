@@ -1,4 +1,7 @@
+// Composant de barre de progression
+// Affiche une barre de progression qui indique le pourcentage de pages lues d'un livre
 function ProgressBar({ currentPage, totalPages }) {
+    // Calcul du pourcentage de progression
     const progressPercent = totalPages > 0 ? (currentPage / totalPages) * 100 : 0;
 
     return (
@@ -11,6 +14,7 @@ function ProgressBar({ currentPage, totalPages }) {
             overflow: 'hidden',
             boxShadow: 'inset 0 2px 5px rgba(0,0,0,0.2)'
         }}>
+            {/* La barre de progression change de couleur en fonction du pourcentage */}
             <div style={{
                 background: progressPercent < 30
                     ? 'linear-gradient(to right, #f44336, #ff7961)'

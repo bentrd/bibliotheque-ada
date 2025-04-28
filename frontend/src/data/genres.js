@@ -1,3 +1,4 @@
+// Liste des genres de livres dans notre application utilisée pour le selecteur de genre à l'ajout d'un livre
 const genres = [
     "Aventure",
     "Art",

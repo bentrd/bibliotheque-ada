@@ -1,13 +1,18 @@
+// Composant Navbar
+// Un composant de barre de navigation qui affiche des liens vers différentes pages de l'application.
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+  // Récupération du token d'authentification depuis le stockage local
   const token = localStorage.getItem('token');
 
+  // Fonction de gestion de la déconnexion
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.href = '/';
   };
 
+  // On affiche la barre de navigation avec des liens conditionnels selon que l'utilisateur est connecté ou non
   return (
     <nav style={styles.navbar}>
       {!token ? (

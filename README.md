@@ -83,6 +83,10 @@ npm run dev
 ## 📚 Infos supplémentaires
 
 - Vous pouvez accéder à l'interface admin sur `http://localhost:5173/admin` (sans auth particulière pour le moment).
+- Un compte **test** est disponible pour tester l'application :
+  - **Email** : `test@test.com`
+  - **Mot de passe** : `mdp`
+  - Ce compte contient déjà plusieurs livres ajoutés pour vous permettre de tester la fonctionnalité de suivi de lecture.
 - La gestion de session est faite via **localStorage**.
 - Les livres sont triés par nombre de pages et progression.
 - Les animations sont gérées en CSS pour les badges, notifications et affichages dynamiques.

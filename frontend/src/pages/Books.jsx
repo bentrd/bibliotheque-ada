@@ -1,3 +1,5 @@
+// Page principale des livres
+// Permet d'afficher la liste des livres, de les trier, d'ajouter un nouveau livre et de mettre à jour la progression de lecture
 import { useState, useEffect } from 'react';
 import API from '../services/api';
 import BookCard from '../components/Books/BookCard';
@@ -7,6 +9,7 @@ import SortControls from '../components/Books/SortControls';
 
 function Books() {
 
+  // Déclaration des états utilisés pour gérer les livres, le formulaire et les erreurs
   const [books, setBooks] = useState([]);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -20,6 +23,7 @@ function Books() {
   const [progressErrors, setProgressErrors] = useState({});
   const [completed, setCompleted] = useState(false);
 
+  // Fonction qui récupère les livres depuis l'API et met à jour l'état 'books'
   const fetchBooks = async () => {
     try {
       const res = await API.get('/books');
@@ -30,9 +34,12 @@ function Books() {
   };
 
   useEffect(() => {
+    // Au montage du composant, on récupère les livres pour les afficher
     fetchBooks();
   }, []);
 
+  // Fonction pour ajouter un nouveau livre
+  // Elle valide les champs et envoie les données au backend via l'API
   const handleAdd = async (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -68,6 +75,7 @@ function Books() {
     }
   };
 
+  // Fonction pour supprimer un livre en envoyant une requête DELETE à l'API
   const handleDelete = async (id) => {
     try {
       await API.delete(`/books/${id}`);
@@ -77,6 +85,8 @@ function Books() {
     }
   };
 
+  // Fonction pour mettre à jour la progression de lecture d'un livre
+  // Elle vérifie la validité de la page actuelle et envoie la mise à jour au backend
   const handleProgressUpdate = async (id, totalPages) => {
     const currentPage = parseInt(currentPageInput[id]);
     const newProgressErrors = {};
@@ -96,6 +106,7 @@ function Books() {
     }
   };
 
+  // Tri des livres selon les critères choisis (titre, auteur, genre, progression)
   const sortedBooks = [...books];
 
   if (sortOption === 'title') {
@@ -115,6 +126,7 @@ function Books() {
   return (
     <div style={{ margin: '10px' }}>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Mes Livres</h2>
+      {/* Affichage des contrôles pour trier les livres et ouvrir le modal d'ajout */}
       <SortControls
         sortOption={sortOption}
         setSortOption={setSortOption}
@@ -122,6 +134,7 @@ function Books() {
         setSortOrder={setSortOrder}
         openModal={() => setShowModal(true)}
       />
+      {/* Modal permettant d'ajouter un nouveau livre */}
       {showModal && (
         <BookModal
           onClose={() => setShowModal(false)}
@@ -139,6 +152,7 @@ function Books() {
           errors={errors}
         />
       )}
+      {/* Affichage des livres sous forme de cartes avec possibilité de supprimer ou mettre à jour la progression */}
       <ul style={{
         listStyle: 'none',
         padding: '0',
@@ -155,6 +169,7 @@ function Books() {
             Il n'y a pas encore de livres. Ajoutez votre premier livre !
           </li>
         ) : (
+          // Affichage de chaque livre sous forme de carte avec sa progression et ses informations
           sortedBooks.map(book => (
             <BookCard
               key={book.id}

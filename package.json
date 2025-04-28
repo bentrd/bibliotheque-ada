@@ -5,6 +5,10 @@
     "scripts": {
         "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\""
     },
+    "workspaces": [
+        "backend",
+        "frontend"
+    ],
     "devDependencies": {
         "concurrently": "^8.2.2"
     }

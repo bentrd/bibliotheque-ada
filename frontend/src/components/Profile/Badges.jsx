@@ -1,5 +1,6 @@
 function Badges({ books }) {
 
+  // Fonction qui compte le nombre de livres terminés dans une période donnée (en jours)
   const countBooksInPeriod = (books, days) => {
     const now = new Date();
     return books.filter(book => {
@@ -11,6 +12,7 @@ function Badges({ books }) {
     }).length;
   };
 
+  // Fonction qui compte le nombre de livres terminés dans le mois en cours
   const countBooksThisMonth = (books) => {
     const now = new Date();
     return books.filter(book => {
@@ -20,6 +22,7 @@ function Badges({ books }) {
     }).length;
   };
 
+  // Fonction qui compte le nombre de livres terminés dans l'année en cours
   const countBooksThisYear = (books) => {
     const now = new Date();
     return books.filter(book => {
@@ -29,29 +32,41 @@ function Badges({ books }) {
     }).length;
   };
 
+  // Fonction qui calcule les badges gagnés en fonction des livres terminés et de leurs caractéristiques
   const calculateBadges = () => {
     const earnedBadges = [];
 
+    // Filtrer les livres terminés (currentPage >= totalPages et totalPages > 0)
     const completedBooks = books.filter(book => book.currentPage >= book.totalPages && book.totalPages > 0);
     const completedCount = completedBooks.length;
 
+    // Badge "Première Lecture" : au moins 1 livre terminé
     if (completedCount >= 1) earnedBadges.push({ icon: '📖', title: 'Première Lecture', description: 'Terminer votre premier livre' });
+    // Badge "Lecteur·trice assidu·e" : au moins 5 livres terminés
     if (completedCount >= 5) earnedBadges.push({ icon: '📚', title: 'Lecteur·trice assidu·e', description: 'Terminer 5 livres' });
+    // Badge "Bibliophile" : au moins 20 livres terminés
     if (completedCount >= 20) earnedBadges.push({ icon: '🏆', title: 'Bibliophile', description: 'Terminer 20 livres' });
 
+    // Calcul des genres différents lus
     const genresRead = new Set(completedBooks.map(book => book.genre));
+    // Badge "Explorer les genres" : lire au moins 3 genres différents
     if (genresRead.size >= 3) earnedBadges.push({ icon: '🌍', title: 'Explorer les genres', description: 'Lire 3 genres différents' });
+    // Badge "Aventurier·ère littéraire" : lire au moins 5 genres différents
     if (genresRead.size >= 5) earnedBadges.push({ icon: '🧭', title: 'Aventurier·ère littéraire', description: 'Lire 5 genres différents' });
 
+    // Badge "Marathon de lecture" : avoir terminé au moins un livre de plus de 300 pages
     const bigBookRead = completedBooks.some(book => book.totalPages > 300);
     if (bigBookRead) earnedBadges.push({ icon: '🏋️‍♂️', title: 'Marathon de lecture', description: 'Terminer un livre de plus de 300 pages' });
 
+    // Badge "Lecture rapide" : lire 5 livres en moins de 2 semaines (14 jours)
     if (countBooksInPeriod(completedBooks, 14) >= 5) {
       earnedBadges.push({ icon: '⏱️', title: 'Lecture rapide', description: 'Lire 5 livres en moins de 2 semaines' });
     }
+    // Badge "10 livres dans un mois" : lire 10 livres dans le mois en cours
     if (countBooksThisMonth(completedBooks) >= 10) {
       earnedBadges.push({ icon: '📅', title: '10 livres dans un mois', description: 'Lire 10 livres dans un mois' });
     }
+    // Badge "30 livres dans une année" : lire 30 livres dans l'année en cours
     if (countBooksThisYear(completedBooks) >= 30) {
       earnedBadges.push({ icon: '🗓️', title: '30 livres dans une année', description: 'Lire 30 livres dans l’année' });
     }
@@ -59,6 +74,7 @@ function Badges({ books }) {
     return earnedBadges;
   };
 
+  // Fonction qui retourne la couleur associée à un badge selon son titre
   const getBadgeColor = (title) => {
     switch (title) {
       case 'Première Lecture':
@@ -82,6 +98,7 @@ function Badges({ books }) {
 
   return (
     <>
+      {/* Style CSS pour l'animation d'apparition des badges (fadeIn) */}
       <style>
       {`
       @keyframes fadeIn {
@@ -104,9 +121,11 @@ function Badges({ books }) {
         marginBottom: '30px'
       }}>
         <h3 style={{ fontSize: '22px', marginBottom: '15px' }}>Mes Badges</h3>
+        {/* Affichage conditionnel : si aucun badge débloqué, afficher un message */}
         {badges.length === 0 ? (
           <p style={{ fontStyle: 'italic', color: '#666' }}>Aucun badge débloqué pour l'instant.</p>
         ) : (
+          // Sinon, afficher la liste des badges avec animation et style
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',

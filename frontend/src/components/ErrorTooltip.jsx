@@ -1,6 +1,7 @@
-import React from 'react';
-
+// Componsant de tooltip d'erreur
+// Ce composant affiche un message d'erreur sous forme de tooltip lorsque l'utilisateur entre une valeur incorrecte dans le champ de saisie.
 function ErrorTooltip({ message }) {
+    // S'il n'y a pas de message, ne rien afficher
     if (!message) return null;
 
     return (
