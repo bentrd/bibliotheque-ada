@@ -36,7 +36,7 @@ Une application web permettant de **gérer vos lectures**, **suivre votre progre
 
 ## 📦 Installation locale
 
-Voici comment lancer le projet sur ton ordinateur :
+Voici comment lancer le projet sur votre ordinateur :
 
 ### 1. Cloner le projet
 
@@ -61,7 +61,7 @@ Grâce à l'utilisation des **workspaces**, cela installera automatiquement les 
 
 ### 3. Générer les fichiers Prisma
 
-Avant de démarrer le projet, génère les fichiers Prisma nécessaires avec :
+Avant de démarrer le projet, générez les fichiers Prisma nécessaires avec :
 
 ```bash
 cd backend && npx prisma generate && cd ..
@@ -71,7 +71,7 @@ cd backend && npx prisma generate && cd ..
 
 ### 4. Démarrer le projet
 
-Depuis la racine (`/bibliotheque-ada`), lance les deux serveurs en parallèle :
+Depuis la racine (`/bibliotheque-ada`), lancez les deux serveurs en parallèle :
 
 ```bash
 npm run dev
