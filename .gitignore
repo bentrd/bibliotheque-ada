@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+*.env
+
+# Vite cache
+.vite/
+
+# Prisma migrations (optional, if you don't want to track history)
+# migrations/
+
+# Logs
+*.log
+
+# MacOS specific
+.DS_Store
+
+# VSCode specific
+.vscode/
+
+# System files
+Thumbs.db
+
+# Optional: database backups
+*.sqlite
+
+# Keep dev.db but ignore all other db
+backend/prisma/dev.db-journal
