@@ -46,6 +46,8 @@ function BookModal({ onClose, handleAdd, title, setTitle, author, setAuthor, gen
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
                 position: 'relative'
             }}>
+                {/* Titre du modal */}
+                <h2 style={{ margin: '0 0 20px', fontSize: '24px', textAlign: 'center' }}>Ajouter un Livre</h2>
                 {/* Bouton pour fermer le modal */}
                 <CloseButton onClick={onClose} />
                 {/* Formulaire pour ajouter un livre, gestionnaire d'envoi déclenche handleAdd */}
