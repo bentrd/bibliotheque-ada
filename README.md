@@ -91,7 +91,7 @@ npm run dev
 
 ## 📚 Infos supplémentaires
 
-- Vous pouvez accéder à l'interface admin sur `http://localhost:5173/admin` (sans auth particulière pour le moment).
+- Vous pouvez accéder à l'interface admin sur `http://localhost:5173/admin`
 - Un compte **test** est disponible pour tester l'application :
   - **Email** : `test@test.com`
   - **Mot de passe** : `mdp`
