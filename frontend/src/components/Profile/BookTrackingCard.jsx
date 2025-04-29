@@ -101,7 +101,16 @@ function BookTrackingCard({ books }) {
                                 <div style={{ position: 'relative', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <div>
                                         {/* Titre du livre en gras */}
-                                        <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>{book.title}</div>
+                                        <div style={{
+                                            fontWeight: 'bold',
+                                            marginBottom: '5px',
+                                            whiteSpace: 'nowrap',        // Empêche le texte de wrap
+                                            overflow: 'hidden',          // Cache le texte qui dépasse
+                                            textOverflow: 'ellipsis',    // Ajoute l'ellipse (...) à la fin du texte trop long
+                                            width: '180px',
+                                        }}>
+                                            {book.title}
+                                        </div>
                                         {/* Nom de l'auteur ou texte par défaut si absent */}
                                         <div style={{ fontSize: '13px', color: '#555', marginBottom: '3px' }}>
                                             {book.author || 'Auteur inconnu'}
