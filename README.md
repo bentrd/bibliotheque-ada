@@ -13,7 +13,6 @@ Une application web permettant de **gérer vos lectures**, **suivre votre progre
 - Suivi du **niveau** (Débutant, Amateur, Confirmé, Expert).
 - Attribution automatique de **points** et de **badges** 🎖️.
 - Section Profil avec **tableau de bord animé**.
-- Notifications personnalisées.
 
 ---
 
@@ -36,7 +35,7 @@ Une application web permettant de **gérer vos lectures**, **suivre votre progre
 
 ## 📦 Installation locale
 
-Voici comment lancer le projet sur ton ordinateur :
+Voici comment lancer le projet sur votre ordinateur :
 
 ### 1. Cloner le projet
 
@@ -61,7 +60,7 @@ Grâce à l'utilisation des **workspaces**, cela installera automatiquement les 
 
 ### 3. Générer les fichiers Prisma
 
-Avant de démarrer le projet, génère les fichiers Prisma nécessaires avec :
+Avant de démarrer le projet, générez les fichiers Prisma nécessaires avec :
 
 ```bash
 cd backend && npx prisma generate && cd ..
@@ -71,7 +70,7 @@ cd backend && npx prisma generate && cd ..
 
 ### 4. Démarrer le projet
 
-Depuis la racine (`/bibliotheque-ada`), lance les deux serveurs en parallèle :
+Depuis la racine (`/bibliotheque-ada`), lancez les deux serveurs en parallèle :
 
 ```bash
 npm run dev
@@ -92,7 +91,7 @@ npm run dev
 
 ## 📚 Infos supplémentaires
 
-- Vous pouvez accéder à l'interface admin sur `http://localhost:5173/admin` (sans auth particulière pour le moment).
+- Vous pouvez accéder à l'interface admin sur `http://localhost:5173/admin`
 - Un compte **test** est disponible pour tester l'application :
   - **Email** : `test@test.com`
   - **Mot de passe** : `mdp`
