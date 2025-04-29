@@ -49,9 +49,26 @@ function Profile() {
   // Inclut également un bouton pour modifier le profil et afficher un formulaire modal
   return (
     <div style={{ padding: '20px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-        <h2 style={{ fontSize: '28px', color: '#333' }}>Tableau de Bord</h2>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center', // Centrer les éléments
+        marginBottom: '20px',
+        position: 'relative' // Permet de positionner le bouton en absolu par rapport à ce conteneur
+      }}>
+        <h2 style={{
+          fontSize: '28px',
+          color: '#333',
+          textAlign: 'center', // Centrer le titre
+          flexGrow: 0, // Empêche le titre de grandir
+          width: '100%' // S'assure que le titre occupe toute la largeur disponible
+        }}>
+          Tableau de Bord
+        </h2>
         <button onClick={() => setShowModal(true)} style={{
+          position: 'absolute', // Le bouton est positionné indépendamment du flux flex
+          top: '0',
+          right: '0',
           padding: '10px 15px',
           borderRadius: '8px',
           border: 'none',
