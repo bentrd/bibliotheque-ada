@@ -13,7 +13,6 @@ Une application web permettant de **gérer vos lectures**, **suivre votre progre
 - Suivi du **niveau** (Débutant, Amateur, Confirmé, Expert).
 - Attribution automatique de **points** et de **badges** 🎖️.
 - Section Profil avec **tableau de bord animé**.
-- Notifications personnalisées.
 
 ---
 
