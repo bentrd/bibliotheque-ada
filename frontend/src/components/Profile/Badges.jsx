@@ -98,20 +98,26 @@ function Badges({ books }) {
 
   return (
     <>
-      {/* Style CSS pour l'animation d'apparition des badges (fadeIn) */}
+      {/* Style CSS pour l'animation d'apparition des badges (fadeIn) et hover effect */}
       <style>
-      {`
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      `}
+        {`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .badge:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+          }
+          .badge {
+            transition: box-shadow 0.3s ease;
+          }
+        `}
       </style>
       <div style={{
         backgroundColor: 'white',
@@ -133,13 +139,14 @@ function Badges({ books }) {
             gap: '10px'
           }}>
             {badges.map((badge, index) => (
-              <div key={index} style={{
+              <div className="badge" key={index} style={{
                 backgroundColor: getBadgeColor(badge.title),
                 padding: '10px',
                 borderRadius: '8px',
                 textAlign: 'center',
                 width: '130px',
                 opacity: 0,
+                cursor: 'default',
                 animation: `fadeIn 0.6s ease forwards`,
                 animationDelay: `${index * 0.2}s`
               }}>
