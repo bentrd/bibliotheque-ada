@@ -53,7 +53,7 @@ function ProfileModal({ email, password, setEmail, setPassword, setShowModal }) 
                         />
                     </div>
                     <div style={{ marginBottom: '15px' }}>
-                        <label>Mot de passe :</label>
+                        <label>Nouveau mot de passe :</label>
                         <input
                             type="password"
                             value={password}
