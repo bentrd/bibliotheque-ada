@@ -42,7 +42,7 @@ function ProfileModal({ email, password, setEmail, setPassword, setShowModal }) 
                     backgroundColor: 'white', padding: '30px', borderRadius: '12px', minWidth: '300px', position: 'relative'
                 }}>
                     <CloseButton onClick={handleClose} />
-                    <h3>Modifier Profil</h3>
+                    <h3 style={{textAlign: 'center'}}>Modifier Profil</h3>
                     <div style={{ marginBottom: '15px' }}>
                         <label>Email :</label>
                         <input
